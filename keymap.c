@@ -52,14 +52,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |   [  |   {  | Alt  | GUI  |Space | Tab  |Enter | Bksp | GUI  | Alt  |   }  |  ]   |
+ * |   [  |   {  | Alt  | GUI  | Tab  |Space |Enter | Bksp | GUI  | Alt  |   }  |  ]   |
  * `-----------------------------------------+-----------------------------------------'
  */
 [_QWERTY] = {
   {KC_DEL,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_MINS},
   {KC_ESC,  LT_NAVA, LT_SYM,  LT_NUM,  LT_FUN,  LT_GUI,  KC_H,    KC_J,    KC_K,    KC_L,    LT_NAVS,  KC_QUOT},
   {KC_LSPO, CTL_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  CTL_SLSH, KC_RSPC},
-  {KC_LBRC, KC_LCBR, KC_LALT, KC_LGUI, KC_SPC,  KC_TAB,  KC_ENT,  KC_BSPC, KC_RGUI, KC_RALT, KC_RCBR,  KC_RBRC}
+  {KC_LBRC, KC_LCBR, KC_LALT, KC_LGUI, KC_TAB,  KC_SPC,  KC_ENT,  KC_BSPC, KC_RGUI, KC_RALT, KC_RCBR,  KC_RBRC}
 },
 
 /* Arrow
