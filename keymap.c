@@ -18,6 +18,7 @@
 #include "action_layer.h"
 
 #define CTL_Z       CTL_T(KC_Z)
+#define GUI_TAB     GUI_T(KC_TAB)
 #define CTL_SLSH    CTL_T(KC_SLSH)
 #define LT_NAVA     LT(_NAV, KC_A)
 #define LT_NAVS     LT(_NAV, KC_SCLN)
@@ -59,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   {KC_DEL,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_MINS},
   {KC_ESC,  LT_NAVA, LT_SYM,  LT_NUM,  LT_FUN,  LT_GUI,  KC_H,    KC_J,    KC_K,    KC_L,    LT_NAVS,  KC_QUOT},
   {KC_LSPO, CTL_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  CTL_SLSH, KC_RSPC},
-  {KC_LBRC, KC_LCBR, KC_LALT, KC_LGUI, KC_TAB,  KC_SPC,  KC_ENT,  KC_BSPC, KC_RGUI, KC_RALT, KC_RCBR,  KC_RBRC}
+  {KC_LBRC, KC_LCBR, KC_LALT, KC_LGUI, GUI_TAB, KC_SPC,  KC_ENT,  KC_BSPC, KC_RGUI, KC_RALT, KC_RCBR,  KC_RBRC}
 },
 
 /* Arrow
@@ -86,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      | SYM  |      |      |      |   ~  |   $  |   %  |   ^  |   |  |  `   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |   =  |   !  |   @  |   #  |   /  |      |
+ * |      |      |      |      |      |      |   =  |   !  |   @  |   #  |   \  |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
@@ -94,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_SYM] = {
   {_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PLUS, S(KC_7), S(KC_8), S(KC_9), S(KC_0), S(KC_MINS)},
   {_______, XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_TILD, S(KC_4), S(KC_5), S(KC_6), KC_PIPE, KC_GRV},
-  {_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL,  S(KC_1), S(KC_2), S(KC_3), _______, _______},
+  {_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL,  S(KC_1), S(KC_2), S(KC_3), KC_BSLS, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
@@ -164,10 +165,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = {
-  {_______, RESET,   DEBUG,   _______, _______, _______, _______, TERM_ON, TERM_OFF,_______, _______, _______},
-  {_______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______, _______, _______, _______},
-  {_______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______},
-  {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
+  {_______, RESET,   DEBUG,   _______, _______, _______, _______, TERM_ON, TERM_OFF, _______, _______, _______},
+  {_______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  _______,  _______, _______, _______},
+  {_______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______,  _______, _______, _______},
+  {_______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______}
 }
 
 };
