@@ -17,9 +17,9 @@
 #include "planck.h"
 #include "action_layer.h"
 
-#define CTL_Z       CTL_T(KC_Z)
+#define CTL_ESC     CTL_T(KC_ESC)               // Tap for Esc, hold for Ctrl
+#define SFT_ENT     SFT_T(KC_ENT)               // Tap for Enter, hold for Shift
 #define GUI_TAB     GUI_T(KC_TAB)
-#define CTL_SLSH    CTL_T(KC_SLSH)
 #define LT_NAVA     LT(_NAV, KC_A)
 #define LT_NAVS     LT(_NAV, KC_SCLN)
 #define LT_SYM      LT(_SYM, KC_S)
@@ -49,18 +49,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | DEL  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |  -   |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * | C/Esc|   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Shift |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |   {  |   [  | CTL  | ALT  |GuiTab|Space |Enter | Bksp | GUI  | Alt  |   ]  |  }   |
+ * | Caps |   [  | CTL  | ALT  |GuiTab|Space |Enter | Bksp | Next | Vol- | Vol+ | Play |
  * `-----------------------------------------+-----------------------------------------'
  */
 [_QWERTY] = {
-  {KC_DEL,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_MINS},
-  {KC_ESC,  LT_NAVA, LT_SYM,  LT_NUM,  LT_FUN,  LT_GUI,  KC_H,    KC_J,    KC_K,    KC_L,    LT_NAVS,  KC_QUOT},
-  {KC_LSPO, CTL_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  CTL_SLSH, KC_RSPC},
-  {KC_LCBR, KC_LBRC, KC_LCTL, KC_LALT, GUI_TAB, KC_SPC,  KC_ENT,  KC_BSPC, KC_RGUI, KC_RALT, KC_RBRC,  KC_RCBR}
+  {KC_CAPS, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_MINS},
+  {CTL_ESC, LT_NAVA, LT_SYM,  LT_NUM,  LT_FUN,  LT_GUI,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_QUOT},
+  {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  SFT_ENT},
+  {KC_CAPS, KC_LBRC, KC_LCTL, KC_LALT, GUI_TAB, KC_SPC,  KC_ENT,  KC_BSPC, KC_MNXT, KC_VOLD, KC_VOLU,  KC_MPLY}
 },
 
 /* Arrow
@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      | NAV  | HOME | PgUp | PgDn | End  | LEFT | DOWN |  UP  | RIGHT| NAV  |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |      |      |      |      |      |      | NORM | SWAP |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------'-----------------------------------------'
@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAV] = {
   {XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX},
   {XXXXXXX, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, XXXXXXX},
-  {XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX},
+  {XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, AG_NORM, AG_SWAP, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX},
   {XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX}
 },
 
@@ -93,9 +93,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_SYM] = {
-  {_______, XXXXXXX, XXXXXXX, KC_LPRN, KC_RPRN, XXXXXXX, KC_PLUS, S(KC_7), S(KC_8), S(KC_9), S(KC_0), S(KC_MINS)},
-  {_______, XXXXXXX, _______, KC_LCBR, KC_RCBR, XXXXXXX, KC_TILD, S(KC_4), S(KC_5), S(KC_6), KC_PIPE, KC_GRV},
-  {_______, XXXXXXX, XXXXXXX, KC_LBRC, KC_RBRC, XXXXXXX, KC_EQL,  S(KC_1), S(KC_2), S(KC_3), KC_BSLS, _______},
+  {_______, XXXXXXX, XXXXXXX, KC_LPRN, KC_RPRN, XXXXXXX, KC_PLUS, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS},
+  {_______, XXXXXXX, _______, KC_LCBR, KC_RCBR, XXXXXXX, KC_TILD, KC_DLR,  KC_PERC, KC_CIRC, KC_PIPE, KC_GRV},
+  {_______, XXXXXXX, XXXXXXX, KC_LBRC, KC_RBRC, XXXXXXX, KC_EQL,  KC_EXLM, KC_AT,   KC_HASH, KC_BSLS, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 },
 
